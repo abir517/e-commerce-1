@@ -2,15 +2,12 @@ import React from 'react'
 import  Container  from './Container'
 import Flex from './Flex'
 import logo from "../assets/logo.png"
-import { RxCross2 } from "react-icons/rx";
-import { FaBars } from "react-icons/fa6";
-import { BiShow } from 'react-icons/bi';
 
 const Header = () => {
   return (
- <header className='h-[80px]'>
+ <header>
   <Container>
-  <Flex className='justify-between items-center h-[80px]'>
+  <Flex className='justify-between items-center h-[80px] bg-#fff'>
     <div className="w-1/4">
       <img src={logo} alt="logo" />
     </div>
@@ -23,10 +20,7 @@ const Header = () => {
         <li className='font-sans text-[16px] text-[#767676] hover:text-[#262626]'>Journal</li>
       </ul>
     </div>
-    <div className="lg:hidden " onClick={()=>setshow(!show)}>
-      {BiShow == true ? <RxCross2/> : <FaBars/>}
     
-    </div>
   </Flex>
  </Container>
 
