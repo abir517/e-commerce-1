@@ -34,7 +34,8 @@ const Navbar = () => {
   }, [cartShow,userCartShow])
 
   return (
-    <Container>
+   <nav className='bg-[#F5F5F3] py-5 '>
+     <Container>
       <Flex>
         <div className="w-[30%] relative">
           <div ref={cartref} className="flex items-center gap-x-3">
@@ -42,7 +43,7 @@ const Navbar = () => {
             <p className='font-sans text-[16px] text-[#767676] hover:text-[#262626]'>Shop by Category</p>
           </div>
           {cartShow &&
-            <div className=" absolute top-[30px] left-0 bg-[#262626] w-[300px]">
+            <div className=" absolute top-[50px] left-0 bg-[#262626] w-[300px]">
               <ul className=' py-4'>
                 <li className='text-[#FFFFFFB2] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Accesories</li>
                 <li className='text-[#FFFFFFB2] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Furniture</li>
@@ -57,20 +58,23 @@ const Navbar = () => {
         <div className="w-[40%]">
           <div className=" relative">
             <input placeholder='Search Products...' type="search" className=' w-full h-[50px] border-2 border-[#262626] outline-none px-2' />
-            <div className=" absolute top-[50%] right-4 translate-y-[-50%]">
+            <div className=" absolute top-[50%] right-4 translate-y-[-50%] items-center">
               <FaSearch />
             </div>
           </div>
         </div>
-        <div className="w-[30%] relative">
-          <div className=" flex justify-end gap-x-3">
-            <div className=" flex">
+        <div className="w-[30%] relative ">
+          <div className=" flex justify-end gap-x-3 top-8">
+            <div className=" flex ">
               <FaUser />
               <IoMdArrowDropdown />
+             
             </div>
+           
             <div ref={userref} className="">
               <FaCartPlus />
             </div>
+           
           </div>
           {userCartShow &&
             <div className=" w-[360px] absolute bg-[#F5F5F3] top-[30px]  right-0">
@@ -104,6 +108,7 @@ const Navbar = () => {
         </div>
       </Flex>
     </Container>
+   </nav>
   )
 }
 
