@@ -25,7 +25,7 @@ const Bannerr = () => {
           transform:"translateY(-50%)",
         }}
       >
-        <ul style={{ margin: "10px" }}> {dots} </ul>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
     customPaging: i => (

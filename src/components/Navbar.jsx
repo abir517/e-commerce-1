@@ -10,8 +10,10 @@ import { GiCrossedBones } from "react-icons/gi";
 const Navbar = () => {
   let [cartShow, setCartShow] = useState(false)
   let [userCartShow, setUserCartShow] = useState(false)
+  let [userShow, setuserShow] = useState(false)
   let cartref = useRef()
   let userref = useRef()
+  let userAccref = useRef()
 
 
   useEffect(() => {
@@ -28,10 +30,16 @@ const Navbar = () => {
       } else {
         setUserCartShow(false)
        
+      } if (userAccref.current.contains(e.target) == true) {
+        setuserShow(!userShow)
+        
+      } else {
+        setuserShow(false)
+       
       }
 
     })
-  }, [cartShow,userCartShow])
+  }, [cartShow,userCartShow,userShow])
 
   return (
    <nav className='bg-[#F5F5F3] py-5 '>
@@ -43,7 +51,7 @@ const Navbar = () => {
             <p className='font-sans text-[16px] text-[#767676] hover:text-[#262626]'>Shop by Category</p>
           </div>
           {cartShow &&
-            <div className=" absolute top-[50px] left-0 bg-[#262626] w-[300px]">
+            <div className=" absolute z-50 top-[50px] left-0 bg-[#262626] w-[300px]">
               <ul className=' py-4'>
                 <li className='text-[#FFFFFFB2] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Accesories</li>
                 <li className='text-[#FFFFFFB2] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Furniture</li>
@@ -65,11 +73,21 @@ const Navbar = () => {
         </div>
         <div className="w-[30%] relative ">
           <div className=" flex justify-end gap-x-3 top-8">
-            <div className=" flex ">
+            <div className=" flex " ref={userAccref}>
               <FaUser />
               <IoMdArrowDropdown />
              
             </div>
+
+                 {userShow &&
+            <div className=" absolute z-50 top-[30px] right-0 w-[300px] bg-[#262626] py-3 px-6">
+              <ul className=' font-sans text-[16px] font-normal text-[#FFFFFFB2]'>
+                <li className=' py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>My Account</li>
+                <li  className=' py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Log in</li>
+                <li  className=' py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Sign up</li>
+              </ul>
+            </div>
+             }
            
             <div ref={userref} className="">
               <FaCartPlus />
@@ -77,7 +95,7 @@ const Navbar = () => {
            
           </div>
           {userCartShow &&
-            <div className=" w-[360px] absolute bg-[#F5F5F3] top-[30px]  right-0">
+            <div className=" w-[360px]  z-50 absolute bg-[#F5F5F3] top-[30px]  right-0">
               <div className=" py-3 bg-[#fff]">
                 <div className=" flex justify-around items-center ">
                   <div className="">
