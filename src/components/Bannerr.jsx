@@ -1,6 +1,11 @@
 import React from 'react'
 import banImg from "../assets/banner.png"
 import Slider from "react-slick";
+import  Container  from './Container';
+import Flex from './Flex';
+import { IoReloadSharp } from "react-icons/io5";
+import { FaTruck } from "react-icons/fa";
+import { PiNumberTwoBold } from "react-icons/pi";
 
 const Bannerr = () => {
 
@@ -25,7 +30,7 @@ const Bannerr = () => {
           transform:"translateY(-50%)",
         }}
       >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
+        <ul style={{ margin: "0" }}> {dots} </ul>
       </div>
     ),
     customPaging: i => (
@@ -43,7 +48,9 @@ const Bannerr = () => {
   };
 
   return (
-    <Slider {...settings}><div className="">
+    <>
+
+<Slider {...settings}><div className="">
     <img src={banImg} alt="Banner" />
   </div> 
   <div className="">
@@ -56,6 +63,34 @@ const Bannerr = () => {
     <img src={banImg} alt="Banner" />
   </div>
   </Slider>
+   <Container>
+    <Flex className=" justify-between py-6">
+     <div className="">
+      <div className="flex items-center  gap-x-2">
+      <PiNumberTwoBold/>
+      <h2 className='text-[white] font-sans text-[16px] lg:text-[#767676]'> Two years warranty</h2>
+      </div>
+     
+     </div>
+     <div className="">
+      <div className=" flex items-center  gap-x-4">
+      <FaTruck/>
+      <h2 className='text-[white] font-sans text-[16px] lg:text-[#767676]'>  Free shipping</h2>
+      </div>
+     </div>
+     <div className="">
+      <div className=" flex items-center gap-x-4">
+      <IoReloadSharp/>
+      <h2 className='text-[white] font-sans text-[16px] lg:text-[#767676]'>  Return policy in 30 days</h2>
+      </div>
+     
+     </div>
+    </Flex>
+   </Container>
+
+
+
+    </>
   
   )
 }
