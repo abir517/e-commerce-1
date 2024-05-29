@@ -6,7 +6,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
  
 
-const Arrivalsitem = () => {
+const Arrivalsitem = ({item}) => {
+console.log(item);
   return (
   
    <div className="w-[24%] py-5">
